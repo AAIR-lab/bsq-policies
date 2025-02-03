@@ -1,0 +1,134 @@
+//Parameters:
+P1 = [0,1]
+P2 = [0,1]
+P3 = [0,6]
+
+//Policy:
+//If currently at starting location:
+if (AND location(starting_location),P[worth_sampling(rock_1)] >= P1,!have_sample(type_1)) --> goto(marker_1)
+elif (AND location(starting_location),distance(starting_location,rock_1) <= P3,P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> scan(rock_1)
+elif (AND location(starting_location),P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> goto(marker_1)
+
+elif (AND location(starting_location),P[worth_sampling(rock_2)] >= P1,!have_sample(type_2)) --> goto(marker_1)
+elif (AND location(starting_location),distance(starting_location,rock_2) <= P3,P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> scan(rock_2)
+elif (AND location(starting_location),P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> goto(marker_1)
+
+elif (AND location(starting_location),P[worth_sampling(rock_3)] >= P1,!have_sample(type_1)) --> goto(rock_3)
+elif (AND location(starting_location),distance(starting_location,rock_3) <= P3,P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> scan(rock_3)
+elif (AND location(starting_location),P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> goto(rock_3)
+
+elif (AND location(starting_location),P[worth_sampling(rock_4)] >= P1,!have_sample(type_2)) --> goto(marker_2)
+elif (AND location(starting_location),distance(starting_location,rock_4) <= P3,P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> scan(rock_4)
+elif (AND location(starting_location),P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> goto(marker_2)
+
+elif location(starting_location) --> goto(marker_2)
+
+//If currently at rock_1:
+elif (AND location(rock_1),P[worth_sampling(rock_1)] >= P1,!have_sample(type_1)) --> sample()
+elif (AND location(rock_1),P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> scan(rock_1)
+
+elif (AND location(rock_1),P[worth_sampling(rock_2)] >= P1,!have_sample(type_2)) --> goto(rock_2)
+elif (AND location(rock_1),distance(rock_1,rock_2) <= P3,P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> scan(rock_2)
+elif (AND location(rock_1),P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> goto(rock_2)
+
+elif (AND location(rock_1),P[worth_sampling(rock_3)] >= P1,!have_sample(type_1)) --> goto(marker_1)
+elif (AND location(rock_1),distance(rock_1,rock_3) <= P3,P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> scan(rock_3)
+elif (AND location(rock_1),P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> goto(marker_1)
+
+elif (AND location(rock_1),P[worth_sampling(rock_4)] >= P1,!have_sample(type_2)) --> goto(marker_1)
+elif (AND location(rock_1),distance(rock_1,rock_4) <= P3,P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> scan(rock_4)
+elif (AND location(rock_1),P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> goto(marker_1)
+
+elif location(rock_1) --> goto(rock_2)
+
+//If currently at rock_2:
+elif (AND location(rock_2),P[worth_sampling(rock_1)] >= P1,!have_sample(type_1)) --> goto(rock_1)
+elif (AND location(rock_2),distance(rock_2,rock_1) <= P3,P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> scan(rock_1)
+elif (AND location(rock_2),P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> goto(rock_1)
+
+elif (AND location(rock_2),P[worth_sampling(rock_2)] >= P1,!have_sample(type_2)) --> sample()
+elif (AND location(rock_2),P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> scan(rock_2)
+
+elif (AND location(rock_2),P[worth_sampling(rock_3)] >= P1,!have_sample(type_1)) --> goto(marker_1)
+elif (AND location(rock_2),distance(rock_3,rock_1) <= P3,P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> scan(rock_3)
+elif (AND location(rock_2),P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> goto(marker_1)
+
+elif (AND location(rock_2),P[worth_sampling(rock_4)] >= P1,!have_sample(type_2)) --> goto(marker_1)
+elif (AND location(rock_2),distance(rock_4,rock_1) <= P3,P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> scan(rock_4)
+elif (AND location(rock_2),P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> goto(marker_1)
+
+elif location(rock_2) --> goto(dropoff_location)
+
+//If currently at rock_3:
+elif (AND location(rock_3),P[worth_sampling(rock_1)] >= P1,!have_sample(type_1)) --> goto(marker_1)
+elif (AND location(rock_3),distance(rock_3,rock_1) <= P3,P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> scan(rock_1)
+elif (AND location(rock_3),P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> goto(marker_1)
+
+elif (AND location(rock_3),P[worth_sampling(rock_2)] >= P1,!have_sample(type_2)) --> goto(marker_1)
+elif (AND location(rock_3),distance(rock_3,rock_2) <= P3,P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> scan(rock_2)
+elif (AND location(rock_3),P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> goto(marker_1)
+
+elif (AND location(rock_3),P[worth_sampling(rock_3)] >= P1,!have_sample(type_1)) --> sample()
+elif (AND location(rock_3),P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> scan(rock_3)
+
+elif (AND location(rock_3),P[worth_sampling(rock_4)] >= P1,!have_sample(type_2)) --> goto(marker_2)
+elif (AND location(rock_3),distance(rock_3,rock_4) <= P3,P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> scan(rock_4)
+elif (AND location(rock_3),P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> goto(marker_2)
+
+elif location(rock_3) --> goto(marker_2)
+
+//If currently at rock_4:
+elif (AND location(rock_4),P[worth_sampling(rock_1)] >= P1,!have_sample(type_1)) --> goto(marker_2)
+elif (AND location(rock_4),distance(rock_4,rock_1) <= P3,P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> scan(rock_1)
+elif (AND location(rock_4),P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> goto(marker_2)
+
+elif (AND location(rock_4),P[worth_sampling(rock_2)] >= P1,!have_sample(type_2)) --> goto(marker_2)
+elif (AND location(rock_4),distance(rock_4,rock_2) <= P3,P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> scan(rock_2)
+elif (AND location(rock_4),P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> goto(marker_2)
+
+elif (AND location(rock_4),P[worth_sampling(rock_3)] >= P1,!have_sample(type_1)) --> goto(marker_2)
+elif (AND location(rock_4),distance(rock_4,rock_3) <= P3,P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> scan(rock_3)
+elif (AND location(rock_4),P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> goto(marker_2)
+
+elif (AND location(rock_4),P[worth_sampling(rock_4)] >= P1,!have_sample(type_2)) --> sample()
+elif (AND location(rock_4),P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> scan(rock_4)
+
+elif location(rock_4) --> goto(marker_2)
+
+//If currently at marker_1:
+elif (AND location(marker_1),P[worth_sampling(rock_1)] >= P1,!have_sample(type_1)) --> goto(rock_1)
+elif (AND location(marker_1),distance(marker_1,rock_1) <= P3,P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> scan(rock_1)
+elif (AND location(marker_1),P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> goto(rock_1)
+
+elif (AND location(marker_1),P[worth_sampling(rock_2)] >= P1,!have_sample(type_2)) --> goto(rock_2)
+elif (AND location(marker_1),distance(marker_1,rock_2) <= P3,P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> scan(rock_2)
+elif (AND location(marker_1),P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> goto(rock_2)
+
+elif (AND location(marker_1),P[worth_sampling(rock_3)] >= P1,!have_sample(type_1)) --> goto(rock_3)
+elif (AND location(marker_1),distance(marker_1,rock_3) <= P3,P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> scan(rock_3)
+elif (AND location(marker_1),P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> goto(rock_3)
+
+elif (AND location(marker_1),P[worth_sampling(rock_4)] >= P1,!have_sample(type_2)) --> goto(marker_2)
+elif (AND location(marker_1),distance(marker_1,rock_4) <= P3,P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> scan(rock_4)
+elif (AND location(marker_1),P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> goto(marker_2)
+
+elif location(marker_1) --> goto(marker_2)
+
+//If currently at marker_2:
+elif (AND location(marker_2),P[worth_sampling(rock_1)] >= P1,!have_sample(type_1)) --> goto(marker_1)
+elif (AND location(marker_2),distance(marker_2,rock_1) <= P3,P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> scan(rock_1)
+elif (AND location(marker_2),P[worth_sampling(rock_1)] >= P2,!have_sample(type_1)) --> goto(marker_1)
+
+elif (AND location(marker_2),P[worth_sampling(rock_2)] >= P1,!have_sample(type_2)) --> goto(marker_2)
+elif (AND location(marker_2),distance(marker_2,rock_2) <= P3,P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> scan(rock_2)
+elif (AND location(marker_2),P[worth_sampling(rock_2)] >= P2,!have_sample(type_2)) --> goto(marker_2)
+
+elif (AND location(marker_2),P[worth_sampling(rock_3)] >= P1,!have_sample(type_1)) --> goto(rock_3)
+elif (AND location(marker_2),distance(marker_2,rock_3) <= P3,P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> scan(rock_3)
+elif (AND location(marker_2),P[worth_sampling(rock_3)] >= P2,!have_sample(type_1)) --> goto(rock_3)
+
+elif (AND location(marker_2),P[worth_sampling(rock_4)] >= P1,!have_sample(type_2)) --> goto(rock_4)
+elif (AND location(marker_2),distance(marker_2,rock_4) <= P3,P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> scan(rock_4)
+elif (AND location(marker_2),P[worth_sampling(rock_4)] >= P2,!have_sample(type_2)) --> goto(rock_4)
+
+else goto(dropoff_location)

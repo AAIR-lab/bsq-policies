@@ -1,0 +1,7 @@
+//Parameters:
+P1 = [0.0,1.0]
+P2 = [0.0,1.0]
+//Policy:
+if P[safe_to_merge()] >= P1 --> merge()
+elif (AND (OR current_speed(1),current_speed(2),current_speed(3),current_speed(4)),P[next_to()] >= P2) --> decrease_speed()
+else keep_speed()

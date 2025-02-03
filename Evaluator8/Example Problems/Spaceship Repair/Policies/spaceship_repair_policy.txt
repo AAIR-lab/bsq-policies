@@ -1,0 +1,8 @@
+//Parameters:
+P1 = [0,1]
+P2 = [0,1]
+
+//Policy:
+if P[repair_needed(robot)] >= P1 --> fix(robot)
+elif P[repair_needed(spaceship)] >= P2 --> fix(spaceship)
+else wait()

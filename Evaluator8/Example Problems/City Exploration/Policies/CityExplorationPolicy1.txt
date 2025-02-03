@@ -1,0 +1,53 @@
+//Automatically generated policy for the City Exploration domain assuming the following:
+// -Grid with dimensions of 6-by-5 starting a 0.
+// -Stores are located at locations: (2,1).
+// -Banks are located at locations: (5,0),(0,3).
+//High-level description of the policy:
+// -If a bank has been visited:
+//  -If the agent believes it's at any store, visit.
+//  -Else, using the current ordering of stores as the order of preference and using the action preference order of left, right, up, down, if it's safe to move towards a store do so.
+// -If a bank hasn't been visited:
+//  -If the agent believes it's at any bank, visit.
+//  -Else, using the current ordering of banks as the order of preference and using the action preference order of left, right, up, down, if it's safe to move towards a bank do so.
+// -If it can't perform any other action, scan.
+
+//Parameters:
+P1 = [0.0,1.0]
+P2 = [0.0,1.0]
+
+//Policy:
+//If a bank has been visited and the probability that I'm at a store is greater than P2, than visit.
+if (AND visited_bank(),P[current_location(2,1)] >= P2) --> Visit()
+
+//Else, if a bank has been visited and the probability that the agent is in a location that is right of store 1 and is safe to move left is greater than P1, move left.
+elif (AND visited_bank(),P[(OR (AND current_location(3,0),is_safe(2,0)),(AND current_location(3,1),is_safe(2,1)),(AND current_location(3,2),is_safe(2,2)),(AND current_location(3,3),is_safe(2,3)),(AND current_location(3,4),is_safe(2,4)),(AND current_location(4,0),is_safe(3,0)),(AND current_location(4,1),is_safe(3,1)),(AND current_location(4,2),is_safe(3,2)),(AND current_location(4,3),is_safe(3,3)),(AND current_location(4,4),is_safe(3,4)),(AND current_location(5,0),is_safe(4,0)),(AND current_location(5,1),is_safe(4,1)),(AND current_location(5,2),is_safe(4,2)),(AND current_location(5,3),is_safe(4,3)),(AND current_location(5,4),is_safe(4,4)))] >= P1) --> Left()
+
+//Else, if a bank has been visited and the probability that the agent is in a location that is left of store 1 and is safe to move right is greater than P1, move right.
+elif (AND visited_bank(),P[(OR (AND current_location(0,0),is_safe(1,0)),(AND current_location(0,1),is_safe(1,1)),(AND current_location(0,2),is_safe(1,2)),(AND current_location(0,3),is_safe(1,3)),(AND current_location(0,4),is_safe(1,4)),(AND current_location(1,0),is_safe(2,0)),(AND current_location(1,1),is_safe(2,1)),(AND current_location(1,2),is_safe(2,2)),(AND current_location(1,3),is_safe(2,3)),(AND current_location(1,4),is_safe(2,4)))] >= P1) --> Right()
+
+//Else, if a bank has been visited and the probability that the agent is in a location that is down of store 1 and is safe to move up is greater than P1, move up.
+elif (AND visited_bank(),P[(OR (AND current_location(0,0),is_safe(0,1)),(AND current_location(1,0),is_safe(1,1)),(AND current_location(2,0),is_safe(2,1)),(AND current_location(3,0),is_safe(3,1)),(AND current_location(4,0),is_safe(4,1)),(AND current_location(5,0),is_safe(5,1)))] >= P1) --> Up()
+
+//Else, if a bank has been visited and the probability that the agent is in a location that is up of store 1 and is safe to move down is greater than P1, move down.
+elif (AND visited_bank(),P[(OR (AND current_location(0,2),is_safe(0,1)),(AND current_location(0,3),is_safe(0,2)),(AND current_location(0,4),is_safe(0,3)),(AND current_location(1,2),is_safe(1,1)),(AND current_location(1,3),is_safe(1,2)),(AND current_location(1,4),is_safe(1,3)),(AND current_location(2,2),is_safe(2,1)),(AND current_location(2,3),is_safe(2,2)),(AND current_location(2,4),is_safe(2,3)),(AND current_location(3,2),is_safe(3,1)),(AND current_location(3,3),is_safe(3,2)),(AND current_location(3,4),is_safe(3,3)),(AND current_location(4,2),is_safe(4,1)),(AND current_location(4,3),is_safe(4,2)),(AND current_location(4,4),is_safe(4,3)),(AND current_location(5,2),is_safe(5,1)),(AND current_location(5,3),is_safe(5,2)),(AND current_location(5,4),is_safe(5,3)))] >= P1) --> Down()
+
+//If a bank has not been visited and the probability that I'm at a bank is greater than P2, than visit.
+elif (AND !visited_bank(),P[(OR current_location(5,0),current_location(0,3))] >= P2) --> Visit()
+
+//Else, if a bank has been visited and the probability that the agent is in a location that is left of bank 1 and is safe to move right is greater than P1, move right.
+elif (AND !visited_bank(),P[(OR (AND current_location(0,0),is_safe(1,0)),(AND current_location(0,1),is_safe(1,1)),(AND current_location(0,2),is_safe(1,2)),(AND current_location(0,3),is_safe(1,3)),(AND current_location(0,4),is_safe(1,4)),(AND current_location(1,0),is_safe(2,0)),(AND current_location(1,1),is_safe(2,1)),(AND current_location(1,2),is_safe(2,2)),(AND current_location(1,3),is_safe(2,3)),(AND current_location(1,4),is_safe(2,4)),(AND current_location(2,0),is_safe(3,0)),(AND current_location(2,1),is_safe(3,1)),(AND current_location(2,2),is_safe(3,2)),(AND current_location(2,3),is_safe(3,3)),(AND current_location(2,4),is_safe(3,4)),(AND current_location(3,0),is_safe(4,0)),(AND current_location(3,1),is_safe(4,1)),(AND current_location(3,2),is_safe(4,2)),(AND current_location(3,3),is_safe(4,3)),(AND current_location(3,4),is_safe(4,4)),(AND current_location(4,0),is_safe(5,0)),(AND current_location(4,1),is_safe(5,1)),(AND current_location(4,2),is_safe(5,2)),(AND current_location(4,3),is_safe(5,3)),(AND current_location(4,4),is_safe(5,4)))] >= P1) --> Right()
+
+//Else, if a bank has been visited and the probability that the agent is in a location that is up of bank 1 and is safe to move down is greater than P1, move down.
+elif (AND !visited_bank(),P[(OR (AND current_location(0,1),is_safe(0,0)),(AND current_location(0,2),is_safe(0,1)),(AND current_location(0,3),is_safe(0,2)),(AND current_location(0,4),is_safe(0,3)),(AND current_location(1,1),is_safe(1,0)),(AND current_location(1,2),is_safe(1,1)),(AND current_location(1,3),is_safe(1,2)),(AND current_location(1,4),is_safe(1,3)),(AND current_location(2,1),is_safe(2,0)),(AND current_location(2,2),is_safe(2,1)),(AND current_location(2,3),is_safe(2,2)),(AND current_location(2,4),is_safe(2,3)),(AND current_location(3,1),is_safe(3,0)),(AND current_location(3,2),is_safe(3,1)),(AND current_location(3,3),is_safe(3,2)),(AND current_location(3,4),is_safe(3,3)),(AND current_location(4,1),is_safe(4,0)),(AND current_location(4,2),is_safe(4,1)),(AND current_location(4,3),is_safe(4,2)),(AND current_location(4,4),is_safe(4,3)),(AND current_location(5,1),is_safe(5,0)),(AND current_location(5,2),is_safe(5,1)),(AND current_location(5,3),is_safe(5,2)),(AND current_location(5,4),is_safe(5,3)))] >= P1) --> Down()
+
+//Else, if a bank has not been visited and the probability that the agent is in a location that is right of bank 2 and is safe to move left is greater than P1, move left.
+elif (AND !visited_bank(),P[(OR (AND current_location(1,0),is_safe(0,0)),(AND current_location(1,1),is_safe(0,1)),(AND current_location(1,2),is_safe(0,2)),(AND current_location(1,3),is_safe(0,3)),(AND current_location(1,4),is_safe(0,4)),(AND current_location(2,0),is_safe(1,0)),(AND current_location(2,1),is_safe(1,1)),(AND current_location(2,2),is_safe(1,2)),(AND current_location(2,3),is_safe(1,3)),(AND current_location(2,4),is_safe(1,4)),(AND current_location(3,0),is_safe(2,0)),(AND current_location(3,1),is_safe(2,1)),(AND current_location(3,2),is_safe(2,2)),(AND current_location(3,3),is_safe(2,3)),(AND current_location(3,4),is_safe(2,4)),(AND current_location(4,0),is_safe(3,0)),(AND current_location(4,1),is_safe(3,1)),(AND current_location(4,2),is_safe(3,2)),(AND current_location(4,3),is_safe(3,3)),(AND current_location(4,4),is_safe(3,4)),(AND current_location(5,0),is_safe(4,0)),(AND current_location(5,1),is_safe(4,1)),(AND current_location(5,2),is_safe(4,2)),(AND current_location(5,3),is_safe(4,3)),(AND current_location(5,4),is_safe(4,4)))] >= P1) --> Left()
+
+//Else, if a bank has been visited and the probability that the agent is in a location that is down of bank 2 and is safe to move up is greater than P1, move up.
+elif (AND !visited_bank(),P[(OR (AND current_location(0,0),is_safe(0,1)),(AND current_location(0,1),is_safe(0,2)),(AND current_location(0,2),is_safe(0,3)),(AND current_location(1,0),is_safe(1,1)),(AND current_location(1,1),is_safe(1,2)),(AND current_location(1,2),is_safe(1,3)),(AND current_location(2,0),is_safe(2,1)),(AND current_location(2,1),is_safe(2,2)),(AND current_location(2,2),is_safe(2,3)),(AND current_location(3,0),is_safe(3,1)),(AND current_location(3,1),is_safe(3,2)),(AND current_location(3,2),is_safe(3,3)),(AND current_location(4,0),is_safe(4,1)),(AND current_location(4,1),is_safe(4,2)),(AND current_location(4,2),is_safe(4,3)),(AND current_location(5,0),is_safe(5,1)),(AND current_location(5,1),is_safe(5,2)),(AND current_location(5,2),is_safe(5,3)))] >= P1) --> Up()
+
+//Else, if a bank has been visited and the probability that the agent is in a location that is up of bank 2 and is safe to move down is greater than P1, move down.
+elif (AND !visited_bank(),P[(OR (AND current_location(0,4),is_safe(0,3)),(AND current_location(1,4),is_safe(1,3)),(AND current_location(2,4),is_safe(2,3)),(AND current_location(3,4),is_safe(3,3)),(AND current_location(4,4),is_safe(4,3)),(AND current_location(5,4),is_safe(5,3)))] >= P1) --> Down()
+
+//Otherwise, just scan.
+else Scan()

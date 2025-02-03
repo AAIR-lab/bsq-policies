@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{2de8b86d-dc0c-4a8b-8c24-7bc9e9e01ad3}</ProjectGuid>
+    <RootNamespace>Evaluator8</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>BeliefStateQueryForUserAlignment</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="action.cpp" />
+    <ClCompile Include="Analysis\compliance_analysis.cpp" />
+    <ClCompile Include="belief_state.cpp" />
+    <ClCompile Include="Example Problems\City Exploration\city_exploration_domain.cpp" />
+    <ClCompile Include="Example Problems\City Exploration\city_exploration_policy_generators.cpp" />
+    <ClCompile Include="Example Problems\City Exploration\city_exploration_problem.cpp" />
+    <ClCompile Include="domain.cpp" />
+    <ClCompile Include="Analysis\domain_analysis.cpp" />
+    <ClCompile Include="dynamic_state.cpp" />
+    <ClCompile Include="eval_policy_dfs.cpp" />
+    <ClCompile Include="Example Problems\Graph Rock Sample\graph_rock_sample_domain.cpp" />
+    <ClCompile Include="Example Problems\Graph Rock Sample\graph_rock_sample_problem.cpp" />
+    <ClCompile Include="Example Problems\Lane Merger\lane_merger_domain.cpp" />
+    <ClCompile Include="Example Problems\Lane Merger\lane_merger_policy_generator.cpp" />
+    <ClCompile Include="Example Problems\Lane Merger\lane_merger_problem.cpp" />
+    <ClCompile Include="Example Problems\Spaceship Repair\spaceship_repair_domain.cpp" />
+    <ClCompile Include="Example Problems\Spaceship Repair\spaceship_repair_problem.cpp" />
+    <ClCompile Include="full_belief_state.cpp" />
+    <ClCompile Include="function_data.cpp">
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
+    </ClCompile>
+    <ClCompile Include="interval_solver.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="nelder_mead.cpp" />
+    <ClCompile Include="observation.cpp" />
+    <ClCompile Include="orthotope_kd_tree.cpp" />
+    <ClCompile Include="orthotope_list.cpp" />
+    <ClCompile Include="parallel_evaluator.cpp" />
+    <ClCompile Include="particle_belief_state.cpp" />
+    <ClCompile Include="particle_swarm.cpp" />
+    <ClCompile Include="Policy\BSQ\belief_state_query.cpp" />
+    <ClCompile Include="Policy\BSQ\belief_state_query_node.cpp" />
+    <ClCompile Include="Policy\policy.cpp" />
+    <ClCompile Include="Analysis\policy_analysis.cpp" />
+    <ClCompile Include="Policy\Rule Nodes\parameter_value_inequality.cpp" />
+    <ClCompile Include="Policy\Rule Nodes\RuleConditionNode.cpp" />
+    <ClCompile Include="Policy\rule.cpp" />
+    <ClCompile Include="problem.cpp" />
+    <ClCompile Include="Analysis\problem_analysis.cpp" />
+    <ClCompile Include="query_instance.cpp" />
+    <ClCompile Include="utility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="action.h" />
+    <ClInclude Include="Analysis\compliance_analysis.h" />
+    <ClInclude Include="belief_state.h" />
+    <ClInclude Include="Example Problems\Graph Rock Sample\graph_rock_sample_domain.h" />
+    <ClInclude Include="Example Problems\Graph Rock Sample\graph_rock_sample_problem.h" />
+    <ClInclude Include="Example Problems\Lane Merger\lane_merger_domain.h" />
+    <ClInclude Include="Example Problems\Lane Merger\lane_merger_policy_generator.h" />
+    <ClInclude Include="Example Problems\Lane Merger\lane_merger_problem.h" />
+    <ClInclude Include="Example Problems\Spaceship Repair\spaceship_repair_domain.h" />
+    <ClInclude Include="Example Problems\Spaceship Repair\spaceship_repair_problem.h" />
+    <ClInclude Include="parallel_evaluator.h" />
+    <ClInclude Include="particle_swarm.h" />
+    <ClInclude Include="Policy\BSQ\belief_state_query.h" />
+    <ClInclude Include="Example Problems\City Exploration\city_exploration_domain.h" />
+    <ClInclude Include="Example Problems\City Exploration\city_exploration_policy_generators.h" />
+    <ClInclude Include="Example Problems\City Exploration\city_exploration_problem.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="domain.h" />
+    <ClInclude Include="Analysis\domain_analysis.h" />
+    <ClInclude Include="dynamic_state.h" />
+    <ClInclude Include="eval_policy_dfs.h" />
+    <ClInclude Include="full_belief_state.h" />
+    <ClInclude Include="function_data.h" />
+    <ClInclude Include="interval_solver.h" />
+    <ClInclude Include="nelder_mead.h" />
+    <ClInclude Include="observation.h" />
+    <ClInclude Include="orthotope_kd_tree.h" />
+    <ClInclude Include="orthotope_list.h" />
+    <ClInclude Include="particle_belief_state.h" />
+    <ClInclude Include="Policy\BSQ\belief_state_query_node.h" />
+    <ClInclude Include="parameter_info.h" />
+    <ClInclude Include="Policy\policy.h" />
+    <ClInclude Include="Analysis\policy_analysis.h" />
+    <ClInclude Include="Policy\Rule Nodes\parameter_value_inequality.h" />
+    <ClInclude Include="Policy\Rule Nodes\RuleConditionNode.h" />
+    <ClInclude Include="Policy\rule.h" />
+    <ClInclude Include="problem.h" />
+    <ClInclude Include="Analysis\problem_analysis.h" />
+    <ClInclude Include="query_instance.h" />
+    <ClInclude Include="static_state.h" />
+    <ClInclude Include="utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Example Problems\City Exploration\Policies\CityExplorationPolicy1.txt" />
+    <Text Include="Example Problems\Graph Rock Sample\Policies\graph_rock_sample_policy1.txt" />
+    <Text Include="Example Problems\Graph Rock Sample\Policies\graph_rock_sample_policy1_old.txt" />
+    <Text Include="Example Problems\Lane Merger\Policies\lane_merger_policy1.txt" />
+    <Text Include="Example Problems\Spaceship Repair\Policies\spaceship_repair_policy.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
