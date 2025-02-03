@@ -4,7 +4,7 @@ Code repository for the ideas and experiments from the paper:
 
 **Belief-State Query Policies for User-Aligned POMDPs.**
 
-Daniel Bramblett and Siddharth Srivastava.
+Daniel Bramblett and [Siddharth Srivastava](http://siddharthsrivastava.net/).
 
 *Thirty-Eighth Annual Conference on Neural Information Processing Systems, 2024.*
 
