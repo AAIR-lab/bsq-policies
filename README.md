@@ -24,6 +24,6 @@ For running **Partition Refinement Search**, refer to the `run_solver()` functio
 
 Refer to the `Example Problem` directory for examples on how to implement new domains and problems. 
 
-Belief states are represented in two parts: the constant and dynamic parameters. 
+Belief states consist of two components: constant parameters and dynamic parameters that together define the state.
 - **Problem instances** define the initial belief state and provide function mappings for querying the state space and executing actions.
 - **Domain instances** implement functions such as the next-state distribution and observation distribution from the current state and executed action.
