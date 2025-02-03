@@ -32,3 +32,7 @@ A belief state consists of:
 **Problem instances** define the initial belief state and provide function mappings for querying the state space and executing actions.
 
 **Domain instances** implement functions such as the next-state distribution and observation distribution from the current state and executed action.
+
+## Creating a belief-state query policy
+
+Refer to the `Policies` directories that can be found for each example domain in the  `Example Problem` directory. 
